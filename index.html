@@ -1,0 +1,84 @@
+<!----------------------------------------------------------------------------->
+<!---->
+<!--  Simply Music-->
+<!--  Copyright (C) 2021 JPlexer-->
+<!---->
+<!--   This program is free software: you can redistribute it and/or modify-->
+<!--   it under the terms of the GNU General Public License as published by-->
+<!--   the Free Software Foundation, either version 3 of the License, or-->
+<!--   (at your option) any later version.-->
+<!--
+<!-   This program is distributed in the hope that it will be useful,-->
+<!--  but WITHOUT ANY WARRANTY; without even the implied warranty of-->
+<!--   MERCHANTABILITY or FITNESS FOR A PARTICULAR PURPOSE.  See the-->
+<!--  GNU General Public License for more details.-->
+<!---->
+<!--   You should have received a copy of the GNU General Public License-->
+<!--   along with this program.  If not, see <http://www.gnu.org/licenses/>.-->
+<!--
+<! ---------------------------------------------------------------------------->
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="UTF-8">
+    <title id="wtitle">Simply Music</title>
+    <link rel="stylesheet" href="style.css">
+    </link>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@300;500&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/1ed5439be9.js" crossorigin="anonymous"></script>
+</head>
+
+<body>
+    <div class="container1">
+        <div class="mainwrapper">
+            <div id="main">
+
+            </div>
+            <div class="lyrics">
+                <h1>Lyrics:</h1>
+                <div id="lyrics"></div>
+            </div>
+        </div>
+        <div class="bottombar">
+            <div class="info">
+                <div class="coverpic"><img id="cover" src="./icons/missingalbumart.png" alt="Album Art Missing"></div>
+                <div class="infobb">
+                    <div id="title">Title</div>
+                    <div id="artist">Artist</div>
+                </div>
+            </div>
+            <div class="centerthings">
+                <div class="buttons">
+                    <div class="shufflebuttonn"><a class="btn" id="shuffleButton"><i class="fas fa-random"></i></a>
+                    </div>
+                    <div class="rewindbuttonn"><a class="btn" id="rewindButton"><i class="fas fa-backward"></i></a>
+                    </div>
+                    <div class="playbuttonn"><a class="btn" id="startButton"><i class="fas fa-play"></i></a></div>
+                    <div class="skipbuttonn"><a class="btn" id="skipButton"><i class="fas fa-forward"></i></a></div>
+                    <div class="repeatbuttonn"><a class="btn" id="repeatButton"><i class="fas fa-retweet"></i></a></div>
+                </div>
+                <div class="progress-bar">
+                    <div class="song-time">
+                        <p id="songtime">00:00</p>
+                    </div>
+                    <div class="playing-bar"><input type="range" min="0" max="100" value="0" class="slider"
+                            id="playing"></div>
+                    <div class="song-duration">
+                        <p id="durat">00:00</p>
+                    </div>
+                </div>
+            </div>
+            <div class="volume">
+                <div class="buttons">
+                    <div class="mute-button"><a class="btn" id="muteButton"><i class="fas fa-volume-up"></i></a></div>
+                </div>
+                <div class="volumeslider"><input type="range" min="0" max="100" value="50" class="slider" id="vol">
+                </div>
+            </div>
+        </div>
+    </div>
+    <script src="./script.js"></script>
+</body>
+
+</html>

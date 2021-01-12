@@ -1,0 +1,33 @@
+{
+  "name": "simplymusic",
+  "version": "0.0.2",
+  "description": "simply simple music",
+  "main": "main.js",
+  "scripts": {
+    "start": "electron ."
+  },
+  "keywords": [],
+  "devDependencies": {
+    "electron": "^11.1.1",
+    "electron-packager": "^15.2.0"
+  },
+  "dependencies": {
+    "discord-rich-presence": "0.0.8",
+    "electron-root-path": "^1.0.16",
+    "electron-squirrel-startup": "^1.0.0",
+    "findthelyrics": "^1.0.7",
+    "fs": "0.0.1-security",
+    "music-metadata": "^7.6.4",
+    "path": "^0.12.7"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/JPlexer/simplymusic.git"
+  },
+  "author": "JPlexer",
+  "license": "GPL-3.0-or-later",
+  "bugs": {
+    "url": "https://github.com/JPlexer/simplymusic/issues"
+  },
+  "homepage": "https://github.com/JPlexer/simplymusic#readme"
+}

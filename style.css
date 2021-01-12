@@ -1,0 +1,179 @@
+
+body {
+    font-family: "Montserrat";
+    color: white;
+    background-color: rgb(109, 109, 109);
+    height: 100%;
+    overflow: hidden;
+}
+#main {
+    background-color:  rgb(109, 109, 109);
+    height: 80%;
+    width: 80%;
+    position: absolute;
+    display: flex;
+    flex-wrap: wrap;
+    overflow-y: auto;
+}
+.bottombar {
+    justify-content: center;
+    display: flex;
+    position: absolute;
+    background-color: #404040;
+    height: 20%;
+    width: 100%;
+    border-radius: 25px 25px 0px 0px;
+}
+
+.container1 {
+    position: absolute; 
+    top: 0; 
+    left: 0; 
+    height: 100%; 
+    width: 100%;
+}
+.mainwrapper {
+    height: 80%;
+    display: flex;
+    flex-direction: column;
+}
+.infobb {
+    text-align: left;
+    flex-direction: column;
+    display: flex;
+    justify-content: center;
+    font-size: 200%;
+    margin-left: 10px;
+}
+.info {
+    display: flex;
+    flex-direction: row;
+    position: absolute;
+    left: 0px;
+    padding: 10px;
+    
+}
+.coverpic {
+    border-radius: 20px;
+    width: 9vw;
+    height: 9vw; 
+    display: block;
+  margin-top: auto;
+  margin-bottom: auto;
+}
+.coverpic img {
+    height: 100%;
+    width: 100%;
+    border-radius: 20px;
+ }
+.buttons {
+    display: flex;
+    font-size: 40px; 
+    color: white;
+}
+.buttons a:active {
+    color: gray;
+}
+.buttons a:hover {
+    color:lightgray;
+}
+.shufflebuttonn{
+    margin-left: 15px;
+}
+.rewindbuttonn{
+    margin-left: 15px;
+}
+.playbuttonn{
+    margin-left: 15px;
+}
+.pausebuttonn{
+    margin-left: 15px;
+}
+.skipbuttonn{
+    margin-left: 15px;
+}
+.repeatbuttonn{
+    margin-left: 15px;
+}
+.unmute-button {
+    margin-left: 15px;
+}
+
+.mute-button {
+    margin-left: 15px;
+}
+.progress-bar {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
+
+.centerthings {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.progress-bar .slider {
+    width: 450px;
+  }
+
+.volume{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    right: 0px;
+    padding: 69px;
+    }
+
+    .musictitle {
+        background-color: rgb(90, 90, 90);
+        width: 180px;
+        height: 325px;
+        margin: 20px;
+        font-size: 150%;
+        border-radius: 20px;
+        text-align: center;
+        text-overflow: ellipsis;
+        white-space: normal;
+  overflow: hidden;
+  overflow-wrap: break-word;
+    }
+    .musictitle:hover {
+        background-color: rgb(68, 68, 68);
+    }
+    .musictitle p {
+        margin-top: 1px;
+        text-overflow: ellipsis;
+    }
+    .artistr {
+        font-size: 80%;
+        
+    }
+    .musictitle img{
+        background-color: lightgreen;
+        width: 100%;
+        border-radius: 20px;
+    }
+
+    .lyrics {
+        box-sizing: border-box;
+        background-color: #404040;
+        width: 20%;
+        height: 80%;
+        position: absolute;
+        align-self: flex-end;
+        overflow-y: auto;
+        overflow-x: hidden;
+        border: 8px  solid rgb(109, 109, 109);
+        border-radius: 20px
+    }
+    .lyrics h1 {
+        margin-left: 10px;
+    }
+    .lyrics p {
+        margin-left: 10px;
+    }
