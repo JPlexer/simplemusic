@@ -19,7 +19,7 @@
 * *************************************/
 const { app, BrowserWindow, Menu } = require('electron')
 const client = require('discord-rich-presence')('767467554091565117');
-Menu.setApplicationMenu(false)
+//Menu.setApplicationMenu(false)
 var localMusic = app.getPath('music');
 global.iinfo = {
   musi: localMusic,
@@ -63,7 +63,7 @@ function setActivity() {
   client.updatePresence({
       state: global.iinfo.title,
       details: global.iinfo.artist,
-      largeImageKey: 'fymp_discord',
+      largeImageKey: 'sm2048',
   });
 }
 

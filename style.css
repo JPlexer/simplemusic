@@ -9,7 +9,7 @@ body {
 #main {
     background-color:  rgb(109, 109, 109);
     height: 80%;
-    width: 80%;
+    width: 100%;
     position: absolute;
     display: flex;
     flex-wrap: wrap;
@@ -157,23 +157,4 @@ body {
         background-color: lightgreen;
         width: 100%;
         border-radius: 20px;
-    }
-
-    .lyrics {
-        box-sizing: border-box;
-        background-color: #404040;
-        width: 20%;
-        height: 80%;
-        position: absolute;
-        align-self: flex-end;
-        overflow-y: auto;
-        overflow-x: hidden;
-        border: 8px  solid rgb(109, 109, 109);
-        border-radius: 20px
-    }
-    .lyrics h1 {
-        margin-left: 10px;
-    }
-    .lyrics p {
-        margin-left: 10px;
     }

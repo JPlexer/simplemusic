@@ -35,7 +35,6 @@
         var shuffleactivated = false;
         var audio1 = new Audio(queue[queuePosition]);
         var launched = true
-        const ftl = require("findthelyrics");
         const rootPath = require('electron-root-path').rootPath;
         var files = []
 
@@ -50,88 +49,57 @@
     });     
 }
 //getFiles(rootPath + "/music", files)
-getFiles(info.musi, files)
-var w = files.filter(function(file){
+
+async function init () {
+    await getFiles(info.musi, files)
+var v = await files.filter(function(file){
+    return file.indexOf(".flac") !== -1;
+});
+var w = await files.filter(function(file){
     return file.indexOf(".mp3") !== -1;
 });
-var x = files.filter(function(file){
+var x = await files.filter(function(file){
     return file.indexOf(".ogg") !== -1;
 });
-var y = files.filter(function(file){
+var y = await files.filter(function(file){
     return file.indexOf(".wav") !== -1;
 });
-var z = w.concat(x, y);
-function init () {
-            this.z.forEach(function (file) {
-                mm.parseFile(file)
+console.log(v.concat(w, x, y))
+var z = await v.concat(w, x, y);
+            z.forEach(async function (file) {
+                await mm.parseFile(file)
                     .then(metadata => {
-                        if (metadata.common.title && metadata.common.artist && metadata.common.picture) {
-                            let img
+                        
+                        if (metadata.common.picture) {
                             img = `data:${metadata.common.picture[0].format};base64,${metadata.common.picture[0].data.toString('base64')}`;
-                                        const div = document.createElement("div");
-                                        div.innerHTML =
-                                            '<a class="btn" class="musicbutton" id="' +
-                                            file +
-                                            '" onClick="playFromTop(this.id)"><div class="musictitle" id="' + rootPath + "/music/" +
-                                            file +
-                                            '"><img id="coveer" src="'+ img +'" alt="Album Art Missing"><p class="titler">' +
-                                            metadata.common.title + '</p><p class="artistr">' +
-                                            metadata.common.artist + '</p></div>'
-                                        document.getElementById('main').appendChild(div);
-                                        realQueue.push(file)
-                                        queue.push(file)
 
-                        } else if (metadata.common.title && metadata.common.artist) {
-                                        const div = document.createElement("div");
-                                        div.innerHTML =
-                                            '<a class="btn" class="musicbutton" id="' +
-                                            file +
-                                            '" onClick="playFromTop(this.id)"><div class="musictitle" id="' + rootPath + "/music/" +
-                                            file +
-                                            '"><img id="coveer" src="./icons/missingalbumart.png" alt="Album Art Missing"><p class="titler">' +
-                                            metadata.common.title + '</p><p class="artistr">' +
-                                            metadata.common.artist + '</p></div>'
-                                        document.getElementById('main').appendChild(div);
-                                        realQueue.push(file)
-                                        queue.push(file)
-
-                        } else{
-                            if (metadata.common.title) {
-                                const div = document.createElement("div");
-                                div.innerHTML = '<a class="btn" class="musicbutton" id="' +
-                                    file + '"><div class="musictitle" id="' +
-                                    file +
-                                    '" onClick="playFromTop(this.id)"><img id="coveer" src="./icons/missingalbumart.png" alt="Album Art Missing"><p class="titler">' +
-                                    metadata.common.title + '</p><p class="artistr">' +
-                                    "Unknown Artist" + '</p></div>'
-                                document.getElementById('main').appendChild(div);
-                                realQueue.push(file)
-                                queue.push(file)
-                            } else if (metadata.common.artist) {
-                                const div = document.createElement("div");
-                                div.innerHTML = '<a class="btn" class="musicbutton" id="' +
-                                    file + '"><div class="musictitle" id="' +
-                                    file +
-                                    '" onClick="playFromTop(this.id)"><img id="coveer" src="./icons/missingalbumart.png" alt="Album Art Missing"><p class="titler">' +
-                                    "Unknown Title" + '</p><p class="artistr">' + metadata.common
-                                    .artist + '</p></div>;'
-                                document.getElementById('main').appendChild(div);
-                                realQueue.push(file)
-                                queue.push(file)
-                            } else {
-                                const div = document.createElement("div");
-                                div.innerHTML = '<a class="btn" class="musicbutton" id="' +
-                                    file + '"><div class="musictitle" id="' +
-                                    file +
-                                    '" onClick="playFromTop(this.id)"><img id="coveer" src="./icons/missingalbumart.png" alt="Album Art Missing"><p class="titler">' +
-                                    file + '</p><p class="artistr">' +
-                                    "Unknown Artist" + '</p></div>'
-                                document.getElementById('main').appendChild(div);
-                                realQueue.push(file)
-                                queue.push(file)
-                            }
                         }
+                        else {
+                            img = "./icons/missingalbumart.png"
+                        } if (metadata.common.title) {
+                            title = metadata.common.title
+                        } else {
+                            title = file.toString();
+                        }
+                        if (metadata.common.artist) {
+                            artist = metadata.common.artist
+                            } else {
+                                artist = "Unknown Artist"
+                            }
+                            const div = document.createElement("div");
+                            div.innerHTML =
+                                '<a class="btn" class="musicbutton" id="' +
+                                file +
+                                '" onClick="playFromTop(this.id)"><div class="musictitle" id="' + rootPath + "/music/" +
+                                file +
+                                '"><img id="coveer" src="'+ img +'" alt="Album Art"><p class="titler">' +
+                                title + '</p><p class="artistr">' +
+                                artist + '</p></div>'
+                            document.getElementById('main').appendChild(div);
+                            realQueue.push(file)
+                            queue.push(file)
                     })
+                                        
 
             });
 
@@ -208,16 +176,6 @@ window.onload = init
                 audio1.addEventListener("loadeddata", setSliderMax);
                 mm.parseFile(queue[queuePosition])
                     .then(metadata => {
-                        if (metadata.common.title && metadata.common.artist && i) {
-                            ftl.find(metadata.common.artist, metadata.common.title, function (err, resp) {
-                                if (!err) {
-                                    document.getElementById("lyrics").innerHTML = resp
-                                } else {
-                                    console.log(err)
-                                    document.getElementById("lyrics").innerHTML = "Not Avaliable"
-                                }
-                            })
-                    }
                     if (metadata.common.picture) {
                             let imgg
                             imgg = `data:${metadata.common.picture[0].format};base64,${metadata.common.picture[0].data.toString('base64')}`;
@@ -517,4 +475,3 @@ window.onload = init
               console.log(`The media session action "${action}" is not supported yet.`);
             }
           }
-        
